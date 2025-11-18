@@ -55,8 +55,8 @@ const BookingForm: React.FC = () => {
 export default BookingForm;*/
 import { useState } from "react";
 
-import { BookingRequest} from "../../src/types";
-
+import { BookingRequest } from "../../src/types";
+//import ShoesInput from "./ShoeInput";
 
 interface BookingFormProps {
   onSubmit: (data: BookingRequest) => void;
@@ -73,7 +73,7 @@ function BookingForm({ onSubmit }: BookingFormProps) {
     e.preventDefault();
     const when = `${date}T${time}`;
     const bookingRequest: BookingRequest = { when, lanes, people, shoes };
-    console.log('Form submitted:', bookingRequest);
+    console.log("Form submitted:", bookingRequest);
     onSubmit(bookingRequest);
   };
 
@@ -93,36 +93,89 @@ function BookingForm({ onSubmit }: BookingFormProps) {
 
   return (
     <form className="booking-container" onSubmit={handleSubmit}>
-      <h2>WHEN, WHAT & WHO</h2>
-      <div>
-        <label>Date</label>
-        <input type="date" value={date} onChange={e => setDate(e.target.value)} />
-      </div>
-      <div>
-        <label>Time</label>
-        <input type="time" value={time} onChange={e => setTime(e.target.value)} />
-      </div>
-      <div>
-        <label>Lanes</label>
-        <input type="number" min={1} value={lanes} onChange={e => setLanes(Number(e.target.value))} />
-      </div>
-      <div>
-        <label>People</label>
-        <input type="number" min={1} value={people} onChange={e => setPeople(Number(e.target.value))} />
+      <h2 className="section-title">WHEN, WHAT & WHO</h2>
+
+      <section className="date-time-wrapper">
+        <div className="input-row">
+          <section className="floating-input">
+            <label>Date</label>
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="hidden-date-input"
+            />
+          </section>
+        </div>
+        <div className="input-row">
+          <section className="floating-input">
+            <label>Time</label>
+            <input
+              type="time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+            />
+          </section>
+        </div>
+      </section>
+
+      <div className="input-row lanes">
+        <div className="floating-input">
+          <label>Number of Lanes</label>
+          <input
+            type="number"
+            min={1}
+            value={lanes}
+            onChange={(e) => setLanes(Number(e.target.value))}
+            required
+          />
+        </div>
       </div>
 
-      <h2>SHOES</h2>
-      {shoes.map((size, index) => (
-        <div key={index}>
-          <input type="number" value={size} onChange={e => updateShoeSize(index, Number(e.target.value))} />
-          <button type="button" onClick={() => removeShoe(index)}>–</button>
-        </div>
-      ))}
-      <button type="button" onClick={addShoe}>+</button>
-      <button type="submit">STRIIIIIIKE!</button>
+      <div className="input-row people">
+        <section className="floating-input">
+          <label>Number of awesome bowlers</label>
+          <input
+            type="number"
+            min={1}
+            value={people}
+            onChange={(e) => setPeople(Number(e.target.value))}
+          />
+        </section>
+      </div>
+
+      <div className="shoe-section">
+        <h2 className="section-title">SHOES</h2>
+
+        {shoes.map((size, index) => (
+          <div key={index} className="shoe-item">
+            <div className="input-prefix-wrapper">
+              <input
+                type="number"
+                value={size}
+                onChange={(e) => updateShoeSize(index, Number(e.target.value))}
+              />
+            </div>
+            <button
+              type="button"
+              className="remove-btn"
+              onClick={() => removeShoe(index)}
+            >
+              –
+            </button>
+          </div>
+        ))}
+
+        <button type="button" className="add-btn" onClick={addShoe}>
+          +
+        </button>
+      </div>
+
+      <button className="submit-btn" type="submit">
+        STRIIIIIIKE!
+      </button>
     </form>
   );
 }
 
 export default BookingForm;
-

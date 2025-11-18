@@ -15,7 +15,15 @@ function App() {
     }
   };
 
-  return <BookingForm onSubmit={handleSubmit} />;
+  return(
+    <section>
+      <section className="logo-wrapper">
+        <img src="src/assets/logo.png" alt="logotype" />
+      </section>
+      <BookingForm onSubmit={handleSubmit} />
+    </section>
+    
+  ) 
 }
 
 export default App;
