@@ -1,0 +1,46 @@
+/* buttons.css */
+.remove-btn,
+.add-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  font-weight: 800;
+  font-size: 24px;
+  background: #ec315a;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn {
+  display: flex;               /* flexbox för innehållet */
+  justify-content: center;     /* horisontell centering */
+  align-items: center;         /* vertikal centering */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ec315a;
+  color: white;
+  font-size: 24px;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  margin: 20px auto 0 auto;   /* centrerar knappen i sidan */
+}
+
+.submit-btn {
+  width: 100%;
+  background: #ec315a;
+  padding: 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 22px;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}

@@ -33,7 +33,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+/*
 .logo-wrapper {
   display: flex;
   justify-content: center;
@@ -42,9 +42,9 @@ body {
 }
 
 .logo-wrapper img {
-  width: 185px; /* justera storlek */
+  width: 185px; 
 }
-
+/*
 .booking-container {
   max-width: 380px;
   margin: 0 auto;
@@ -55,7 +55,7 @@ body {
 .title {
   font-size: 34px;
   font-weight: 400;
-  color: #d94560;
+  color: #EC315A;
   text-align: center;
   margin-bottom: 10px;
 }
@@ -121,11 +121,11 @@ input {
 
 input:focus {
   outline: none;              
-  border-color: #d94560;      
+  border-color: #EC315A;      
 }
 
 .input-prefix-wrapper input:focus {
-  border-color: #d94560;
+  border-color: #EC315A;
 
 }
 
@@ -133,7 +133,7 @@ input:focus {
   margin-bottom: 40px;
 }
 
-/* --- Shoes EU prefix --- */
+
 .shoe-item {
   display: flex;
   align-items: center;
@@ -144,10 +144,10 @@ input:focus {
 .input-prefix-wrapper {
   position: relative;
   flex: 1;
-}
-
+}*/
+/*
 .input-prefix-wrapper input {
-  padding-left: 60px; /* plats för EU */
+  padding-left: 60px; 
   font-size: 16px;
   border-radius: 8px;
   border: 1px solid #6a4fc5;
@@ -166,8 +166,8 @@ input:focus {
   pointer-events: none;
   font-size: 14px;
 }
+/*
 
-/* --- Buttons --- */
 .remove-btn,
 .add-btn {
   width: 50px;
@@ -176,7 +176,7 @@ input:focus {
   border: none;
   font-weight: 800;
   font-size: 24px;
-  background: #d94560;
+  background: #EC315A;
   color: white;
   cursor: pointer;
   display: inline-flex;
@@ -191,7 +191,7 @@ input:focus {
 
 .submit-btn {
   width: 100%;
-  background: #d94560;
+  background: #EC315A;
   padding: 18px;
   border: none;
   border-radius: 10px;
@@ -210,23 +210,23 @@ input:focus {
 
 .floating-input input {
   width: 100%;
-  padding: 14px 12px 14px 12px; /* plats för label */
+  padding: 14px 12px 14px 12px; /* plats för label 
   border-radius: 8px;
   border: 1px solid #6a4fc5;
   font-size: 18px;
-  background: #f7eeee; /* samma som bakgrund */
+  background: #f7eeee; 
   color: black;
   outline: none;
 }
 
 .floating-input label {
   position: absolute;
-  top: -8px;      /* alltid på bordern */
-  left: 15px;     /* justera för padding */
-  background: #f7eeee; /* samma som bakgrund */
+  top: -8px;      
+  left: 15px;     
+  background: #f7eeee; 
   padding: 0 4px;
   font-size: 12px;
   color: #4a2c6e;
-  pointer-events: none; /* label klickbar men ignoreras */
-}
+  pointer-events: none; 
+}*/
 

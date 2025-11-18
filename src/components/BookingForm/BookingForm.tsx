@@ -1,62 +1,11 @@
-/*import React, { useState } from 'react';
-import { BookingRequest, BookingResponse} from "../../src/types";
-import { getApiKey, createBooking } from '../../src/api/api';
 
-const BookingForm: React.FC = () => {
-  const [response, setResponse] = useState<BookingResponse | null>(null);
-  const [loading, setLoading] = useState(false);
 
-  const handleBooking = async () => {
-    setLoading(true);
-
-    try {
-      const apiKey = await getApiKey();
-      console.log("Api key:", apiKey)
-
-      const booking: BookingRequest = {
-        when: '2022-11-11T18:00',
-        lanes: 1,
-        people: 4,
-        shoes: [38, 39, 44, 43],
-      };
-
-      console.log("booking req:", booking)
-
-      const res = await createBooking(booking, apiKey);
-
-      console.log("booking res:", res)
-      setResponse(res);
-    } catch (err) {
-      console.error(err);
-      alert('Kunde inte skapa bokning');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <div>
-      <button onClick={handleBooking} disabled={loading}>
-        {loading ? 'Skickar...' : 'Boka'}
-      </button>
-
-      {response && (
-        <div>
-          <h3>Bokning skapad!</h3>
-          <p>ID: {response.id}</p>
-          <p>Price: {response.price} SEK</p>
-          <p>Active: {response.active ? 'Ja' : 'Nej'}</p>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default BookingForm;*/
 import { useState } from "react";
 
-import { BookingRequest } from "../../src/types";
-//import ShoesInput from "./ShoeInput";
+import { BookingRequest } from "../../types";
+import "../BookingForm/BookingForm.css"
+import "../../Button.css"
+import "../../App.css"
 
 interface BookingFormProps {
   onSubmit: (data: BookingRequest) => void;
