@@ -1,7 +1,7 @@
-import { BookingRequest } from "./BookingRequest";
+import { BookingDetails } from "./BookingDetails";
 
-export interface BookingResponse extends BookingRequest {
-  price: number;
-  id: string;
-  active: boolean;
+
+export interface BookingResponse {
+  success: boolean;
+  bookingDetails: BookingDetails
 }

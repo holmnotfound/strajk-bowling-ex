@@ -6,12 +6,14 @@ import { BookingRequest } from "../../types";
 import "../BookingForm/BookingForm.css"
 import "../../Button.css"
 import "../../App.css"
+import { useNavigate } from "react-router-dom";
 
 interface BookingFormProps {
   onSubmit: (data: BookingRequest) => void;
 }
 
 function BookingForm({ onSubmit }: BookingFormProps) {
+  const navigate = useNavigate();
   const [date, setDate] = useState("2025-11-11");
   const [time, setTime] = useState("18:00");
   const [lanes, setLanes] = useState(1);
@@ -24,6 +26,7 @@ function BookingForm({ onSubmit }: BookingFormProps) {
     const bookingRequest: BookingRequest = { when, lanes, people, shoes };
     console.log("Form submitted:", bookingRequest);
     onSubmit(bookingRequest);
+    navigate("/confirmation", {state: { bookingDetails: bookingRequest}});
   };
 
   const updateShoeSize = (index: number, size: number) => {
