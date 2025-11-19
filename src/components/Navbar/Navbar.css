@@ -83,4 +83,9 @@
   color: #ec315a;
 }
 
+.loading .hamburger-btn-wrapper,
+.loading .overlay {
+  display: none;
+}
+
 

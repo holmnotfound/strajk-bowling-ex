@@ -33,6 +33,33 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.error-message {
+  background-color: #ec315a;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.error-message button {
+  margin-top: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: white;
+  color: #ec315a;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.error-message button:hover {
+  background-color: #f7eeee;
+}
+
+
 /*
 .logo-wrapper {
   display: flex;
