@@ -33,6 +33,7 @@ export default App;*/
 import './App.css';
 import BookingForm from './components/BookingForm/BookingForm';
 import ConfirmationPage from './pages/ConfirmationPage';
+import HamburgerMenu from './components/Navbar/Navbar';
 import { BookingRequest} from './types';
 import { getApiKey, createBooking } from './api/api';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
@@ -66,6 +67,7 @@ function BookingFormWrapper() {
 function App() {
   return (
     <Router>
+      <HamburgerMenu />
       <Routes>
         <Route path="/" element={<BookingFormWrapper />} />
         <Route path="/confirmation" element={<ConfirmationPage />} />
