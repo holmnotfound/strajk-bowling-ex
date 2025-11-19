@@ -7,6 +7,7 @@ import "../BookingForm/BookingForm.css"
 import "../../Button.css"
 import "../../App.css"
 import { useNavigate } from "react-router-dom";
+import { validateBooking } from "../../utils/validators";
 
 interface BookingFormProps {
   onSubmit: (data: BookingRequest) => void;
@@ -19,15 +20,30 @@ function BookingForm({ onSubmit }: BookingFormProps) {
   const [lanes, setLanes] = useState(1);
   const [people, setPeople] = useState(4);
   const [shoes, setShoes] = useState<number[]>([38, 39, 44, 42]);
+  const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const when = `${date}T${time}`;
-    const bookingRequest: BookingRequest = { when, lanes, people, shoes };
-    console.log("Form submitted:", bookingRequest);
-    onSubmit(bookingRequest);
-    navigate("/confirmation", {state: { bookingDetails: bookingRequest}});
-  };
+  e.preventDefault();
+
+  const when = `${date}T${time}`;
+  const bookingRequest: BookingRequest = { when, lanes, people, shoes };
+
+  // Kör validering
+  const validationError = validateBooking({
+    lanes: bookingRequest.lanes,
+    people: bookingRequest.people,
+    shoeSizes: bookingRequest.shoes
+  });
+
+  if (validationError) {
+    setError(validationError);
+    return; // Stoppa formuläret från att skickas
+  }
+
+  setError(null); // inga fel
+  onSubmit(bookingRequest);
+  navigate("/confirmation", { state: { bookingDetails: bookingRequest } });
+};
 
   const updateShoeSize = (index: number, size: number) => {
     const updated = [...shoes];
@@ -122,6 +138,7 @@ function BookingForm({ onSubmit }: BookingFormProps) {
           +
         </button>
       </div>
+        {error && <div className="form-error">{error}</div>}
 
       <button className="submit-btn" type="submit">
         STRIIIIIIKE!

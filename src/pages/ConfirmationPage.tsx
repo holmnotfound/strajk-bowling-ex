@@ -116,8 +116,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { formatBookingDate, formatBookingId } from "../utils/formatters";
 
 interface LocationState {
-  booking?: any;
-  error?: string;
+  booking: BookingDetails; //BookingDetails
+  error: string;
 }
 
 function ConfirmationPage() {

@@ -141,3 +141,10 @@ input:focus {
   margin-bottom: 12px;
 }
 
+.form-error {
+  color: red;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+
