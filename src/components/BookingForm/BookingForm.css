@@ -12,8 +12,7 @@
 .booking-container {
   max-width: 380px;
   margin: 0 auto;
-  padding: 24px;
-  border-radius: 14px;
+  padding-bottom: 30px;
 }
 
 .title {
@@ -21,14 +20,14 @@
   font-size: 34px;
   color: #EC315A;
   text-align: center;
-  margin-bottom: 10px;
+ 
 }
 
 .section-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  
   font-family: 'Bebas Neue', sans-serif;
   font-size: 18px;
   letter-spacing: 2px;
@@ -68,7 +67,7 @@ input {
   border: 1px solid #441D81;
   font-size: 18px;
   color: black;
-  background: #f7eeee;
+  background: #FFF4F1;
 }
 
 input:focus {
@@ -127,7 +126,7 @@ input:focus {
   position: absolute;
   top: -8px;
   left: 15px;
-  background: #f7eeee;
+  background: #FFF4F1;
   padding: 0 4px;
   font-size: 12px;
   color: #4a2c6e;

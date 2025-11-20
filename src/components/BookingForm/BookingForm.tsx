@@ -26,8 +26,9 @@ function BookingForm({ onSubmit }: BookingFormProps) {
   e.preventDefault();
 
   const when = `${date}T${time}`;
-  const bookingRequest: BookingRequest = { when, lanes, people, shoes };
-
+  const bookingRequest: BookingRequest = { when, lanes, people, shoes};
+    console.log(bookingRequest)
+    
   // Kör validering
   const validationError = validateBooking({
     lanes: bookingRequest.lanes,
@@ -42,7 +43,7 @@ function BookingForm({ onSubmit }: BookingFormProps) {
 
   setError(null); // inga fel
   onSubmit(bookingRequest);
-  navigate("/confirmation", { state: { bookingDetails: bookingRequest } });
+  navigate("/confirmation", { state: { booking: bookingRequest } });
 };
 
   const updateShoeSize = (index: number, size: number) => {

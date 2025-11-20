@@ -13,5 +13,6 @@ export function formatBookingDate(isoString: string) {
 }
 
 export function formatBookingId(id: string){
-    return id.slice(0, 8)
+  if (!id) throw new Error("formatBookingId: is is undefiend")
+    return id.slice(0, 8).toUpperCase();
 }
