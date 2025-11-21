@@ -57,7 +57,7 @@ function BookingForm({ onSubmit }: BookingFormProps) {
   };
 
   const addShoe = () => {
-    setShoes([...shoes, 44]);
+    setShoes([...shoes, 38]);
   };
 
   return (

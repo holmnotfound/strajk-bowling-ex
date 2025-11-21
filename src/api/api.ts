@@ -8,7 +8,7 @@ export const getApiKey = async (): Promise<string> => {
   }
 
   const data = await res.json();
-  return data.data.key || data.key; 
+  return data.key; 
 };
 
 import { BookingRequest, BookingResponse} from "../../src/types";
@@ -36,8 +36,8 @@ export const createBooking = async (
   const data = await res.json();
 console.log("API response:", data);
 return {
-  success: data.data.success,
-  bookingDetails: data.data.bookingDetails,
+  success: data.success,
+  bookingDetails: data.bookingDetails,
 };
 
 };
