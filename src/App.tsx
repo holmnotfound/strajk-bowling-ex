@@ -126,7 +126,7 @@ function BookingFormWrapper() {
   return (
     <section>
       <section className="logo-wrapper">
-        <img src="src/assets/logo.png" alt="logotype" />
+        <img src="src/assets/booking.png" alt="logotype" />
       </section>
       <BookingForm onSubmit={handleSubmit} />
     </section>

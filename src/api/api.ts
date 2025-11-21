@@ -8,7 +8,7 @@ export const getApiKey = async (): Promise<string> => {
   }
 
   const data = await res.json();
-  return data.key; // Antar att svaret innehåller { key: "din-api-key" }
+  return data.data.key || data.key; 
 };
 
 import { BookingRequest, BookingResponse} from "../../src/types";
@@ -33,7 +33,12 @@ export const createBooking = async (
     throw new Error('Failed to create booking');
   }
 
-  const data: BookingResponse = await res.json();
-  return data;
+  const data = await res.json();
+console.log("API response:", data);
+return {
+  success: data.data.success,
+  bookingDetails: data.data.bookingDetails,
+};
+
 };
 
