@@ -12,7 +12,6 @@ function HamburgerMenu() {
 
   return (
     <>
-      {/* Hamburger icon */}
       <section className="hamburger-btn-wrapper">
         <button
           className={`hamburger-btn ${isOpen ? "open" : ""}`}
@@ -24,7 +23,6 @@ function HamburgerMenu() {
         </button>
       </section>
 
-      {/* Fullscreen overlay menu */}
       <div className={`overlay ${isOpen ? "open" : ""}`}>
         <nav className="overlay-nav">
           <Link to="/" onClick={toggleMenu}>

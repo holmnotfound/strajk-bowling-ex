@@ -27,9 +27,7 @@ function BookingForm({ onSubmit }: BookingFormProps) {
 
   const when = `${date}T${time}`;
   const bookingRequest: BookingRequest = { when, lanes, people, shoes};
-    console.log(bookingRequest)
     
-  // Kör validering
   const validationError = validateBooking({
     lanes: bookingRequest.lanes,
     people: bookingRequest.people,
@@ -38,10 +36,10 @@ function BookingForm({ onSubmit }: BookingFormProps) {
 
   if (validationError) {
     setError(validationError);
-    return; // Stoppa formuläret från att skickas
+    return; 
   }
 
-  setError(null); // inga fel
+  setError(null); 
   onSubmit(bookingRequest);
   navigate("/confirmation", { state: { booking: bookingRequest } });
 };
