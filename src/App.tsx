@@ -1,35 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import './App.css';
+import BookingForm from './components/BookingForm/BookingForm';
+import ConfirmationPage from './pages/ConfirmationPage';
+import HamburgerMenu from './components/Navbar/Navbar';
+import LoadingScreen from './components/LoadingScreen/LoadingScreen';
+import { BookingRequest } from './types';
+import { getApiKey, createBooking } from './api/api';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+function BookingFormWrapper() {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (isLoading) {
+      document.body.classList.add("loading");
+    } else {
+      document.body.classList.remove("loading");
+    }
+
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, [isLoading]);
+
+  if (isLoading) return <LoadingScreen />;
+
+  const handleSubmit = async (data: BookingRequest) => {
+    try {
+      const apiKey = await getApiKey();
+      const response = await createBooking(data, apiKey);
+
+      navigate("/confirmation", { state: { booking: response.bookingDetails } });
+
+    } catch (err: any) {
+      console.error("Booking error:", err);
+      navigate("/confirmation", {
+        state: { error: err.message || "Kunde inte genomföra bokningen. API:et verkar nere just nu!" }
+      });
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <section>
+      <section className="logo-wrapper">
+        <img src="src/assets/booking.png" alt="logotype" />
+      </section>
+      <BookingForm onSubmit={handleSubmit} />
+    </section>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Router>
+      <HamburgerMenu />
+      <Routes>
+        <Route path="/" element={<BookingFormWrapper />} />
+        <Route path="/confirmation" element={<ConfirmationPage />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+
+
+
+

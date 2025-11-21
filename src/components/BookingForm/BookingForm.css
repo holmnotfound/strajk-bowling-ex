@@ -1,0 +1,143 @@
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px 0;
+}
+
+.logo-wrapper img {
+  width: 185px;
+}
+
+.booking-container {
+  max-width: 380px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 34px;
+  color: #EC315A;
+  text-align: center;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: #4a2c6e;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-title::before,
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: #441D81;
+  opacity: 0.4;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: #441D81;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #441D81;
+  font-size: 18px;
+  color: black;
+  background: #FFF4F1;
+}
+
+input:focus {
+  outline: none;
+  border-color: #EC315A;
+}
+
+.people{
+  margin-bottom: 40px;
+}
+
+.date-time-wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.date-time-wrapper .input-row {
+  flex: 1;
+}
+
+.input-prefix-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.input-prefix-wrapper input {
+  padding-left: 60px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #6a4fc5;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-prefix-wrapper::before {
+  content: "EURO";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6a4fc5;
+  font-weight: bold;
+  pointer-events: none;
+  font-size: 14px;
+}
+
+.floating-input {
+  position: relative;
+  width: 100%;
+}
+
+.floating-input label {
+  position: absolute;
+  top: -8px;
+  left: 15px;
+  background: #FFF4F1;
+  padding: 0 4px;
+  font-size: 12px;
+  color: #4a2c6e;
+  pointer-events: none;
+}
+
+.shoe-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.form-error {
+  color: red;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+
